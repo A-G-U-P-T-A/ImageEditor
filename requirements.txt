@@ -1,3 +1,4 @@
 scikit-image
 pathlib
 pillow
+pyqt5
