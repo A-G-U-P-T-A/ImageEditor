@@ -33,14 +33,51 @@ import sys
 from PyQt5.QtWidgets import QApplication, QTreeView, QFileSystemModel, QVBoxLayout, QWidget
 
 
+# class FileExplorer(QWidget):
+#     def __init__(self):
+#         super().__init__()
+#         self.init_ui()
+#
+#     def init_ui(self):
+#         self.setWindowTitle("File Explorer")
+#         self.setGeometry(100, 100, 800, 600)
+#
+#         # Create a file system model
+#         model = QFileSystemModel()
+#         model.setRootPath('')  # Setting root to the entire file system
+#         tree = QTreeView(self)
+#         tree.setModel(model)
+#
+#         # Layout
+#         layout = QVBoxLayout()
+#         layout.addWidget(tree)
+#         self.setLayout(layout)
+
 class FileExplorer(QWidget):
     def __init__(self):
         super().__init__()
-        self.initUI()
+        self.init_ui()
 
-    def initUI(self):
+    def init_ui(self):
         self.setWindowTitle("File Explorer")
         self.setGeometry(100, 100, 800, 600)
+        self.showMaximized()  # Maximize the window
+
+        # Dark Material Theme Stylesheet
+        self.setStyleSheet("""
+            QWidget {
+                color: #b1b1b1;
+                background-color: #323232;
+            }
+            QTreeView {
+                border: none;
+            }
+            QHeaderView::section {
+                background-color: #424242;
+                padding: 4px;
+                border: 1px solid #6c6c6c;
+            }
+            """)
 
         # Create a file system model
         model = QFileSystemModel()
